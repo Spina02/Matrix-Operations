@@ -7,7 +7,7 @@ cmake ..
 make
 ```
 
->[Note]
+>[!note]
 > All the commands below are supposed to be used in build directory
 
 To run c++ unit tests, type:
