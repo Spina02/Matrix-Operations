@@ -1,9 +1,6 @@
 import sys
 import time
 import numpy as np
-
-# Ensure that the directory containing the compiled module is on the path.
-sys.path.append("./build")
 import matrix
 
 def to_numpy(m):

@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Compiler flags for optimization and warnings (for G++/Clang)
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    add_compile_options(-O3 -Wall -Wextra)
+    add_compile_options(-O3 -Wall -Wextra -Wpedantic -Werror)
 endif()
 
 # Header files
@@ -40,3 +40,8 @@ find_package(pybind11 REQUIRED)
 # Include bindings.cpp as a Python module
 pybind11_add_module(matrix MODULE ${PROJECT_SOURCE_DIR}/bindings.cpp ${SOURCES})
 target_include_directories(matrix PRIVATE ${PROJECT_SOURCE_DIR}/include)
+
+# Set the output directory for the Python module
+set_target_properties(matrix PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/python
+)
