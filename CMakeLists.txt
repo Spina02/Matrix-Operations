@@ -1,6 +1,8 @@
 # minimum required version of CMake
 cmake_minimum_required(VERSION 3.10)
-cmake_policy(SET CMP0148 NEW)
+if(POLICY CMP0148)
+    cmake_policy(SET CMP0148 NEW)
+endif()
 
 # Specify g++ as the C++ compiler
 set(CMAKE_CXX_COMPILER "/usr/bin/g++" CACHE STRING "C++ compiler")
